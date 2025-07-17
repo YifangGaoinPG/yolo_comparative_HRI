@@ -19,7 +19,7 @@ pip install -q git+https://github.com/sunsmarterjie/yolov12.git roboflow supervi
 
 ### 2. Dataset
 See dataset folder or use the following code:
-```
+```python
 import pillow_heif
 
 def mock_register_avif_opener(*args, **kwargs):
@@ -43,11 +43,11 @@ Use the following code to train the YOLO models. Make sure to replace `yolov13n.
 ```python
 from ultralytics import YOLO
 
-model = YOLO('yolov13n.yaml')
+model = YOLO('path_to_yolo_yaml_file')
 
 # Train the model
 results = model.train(
-  data='coco.yaml',
+  data='path_to_dataset_yaml_file',
   epochs=600, 
   batch=256, 
   imgsz=640,
@@ -66,16 +66,14 @@ results = model.train(
 [`YOLOv13-L`](https://github.com/iMoonLab/yolov13/releases/download/yolov13/yolov13l.pt)
 [`YOLOv13-X`](https://github.com/iMoonLab/yolov13/releases/download/yolov13/yolov13x.pt)
 
-Use the following code to validate the YOLOv13 models on the TSL-Detection dataset. Make sure to replace `{n/s/l/x}` with the desired model scale (nano, small, plus, or ultra).
+Use the following code to validate the YOLO models on the TSL-Detection dataset. Make sure to replace `{n/s/l/x}` with the desired model scale (nano, small, plus, or ultra).
 ```python
 from ultralytics import YOLO
 
-model = YOLO('yolov13{n/s/l/x}.pt')  # Replace with the desired model scale
+model = YOLO('path_to_yolo_pt_file')  # Replace with model for validation
 metrics = model.val('path_to_dataset_yaml_file')
 ```
 
 ## Related Projects 🔗
 
 - The code is based on [Ultralytics](https://github.com/ultralytics/ultralytics). Thanks for their excellent work!
-
-
