@@ -2,9 +2,8 @@
 ## Quick Start 🚀 
 
 ### 1. Install Dependencies
-
-```
 for YOLOv13:
+```
 wget https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.3/flash_attn-2.7.3+cu11torch2.2cxx11abiFALSE-cp311-cp311-linux_x86_64.whl
 conda create -n yolov13 python=3.11
 conda activate yolov13
@@ -20,6 +19,7 @@ pip install -q git+https://github.com/sunsmarterjie/yolov12.git roboflow supervi
 
 ### 2. Dataset
 See dataset folder or use the following code:
+```
 import pillow_heif
 
 def mock_register_avif_opener(*args, **kwargs):
@@ -35,7 +35,7 @@ rf = Roboflow(api_key=ROBOFLOW_API_KEY)
 project = rf.workspace("computer-vision-cuvyr").project("tsl-detection")
 version = project.version(2)
 dataset = version.download("yolov8")
-
+```
 
 ### 3. Training
 
